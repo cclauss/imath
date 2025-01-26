@@ -34,9 +34,16 @@ jobs:
         "$CC" --version
     - name: make test    # unit tests
       run: make test
+<<<<<<< HEAD
     - name: "macOS: brew install gmp"
       if: runner.os == 'macOS'
       run: brew install gmp
+=======
+    # TODO(creachadair): As of 25-Jan-2024, the GMP compatibility tests
+    # on gcc no longer work correctly when run in containers either
+    # locally or in github actions. They work fine from the CLI, but
+    # for now turn them off in CI.
+>>>>>>> 4b28544 (Update .github/workflows/unit-tests.yml)
     - name: make check   # unit and compatibility tests
       if: matrix.compiler == 'clang'
       run: make check
